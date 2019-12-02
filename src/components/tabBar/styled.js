@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const TabBarContainer = styled.div`
     width:100%;
-    height:1rem;
+    height:0.5rem;
     background:#fff;
     border-top:1px solid #ccc;
     position:fixed;
@@ -26,10 +26,10 @@ export const TabBarContainer = styled.div`
         justify-content:center;
         align-items:center;
         i{
-            font-size:.4rem;
+            font-size:.2rem;
         }
         span{
-            font-size:.3rem;
+            font-size:.15rem;
         }
     }
 `

@@ -1,11 +1,8 @@
-import {
-    Home,
-    Find,
-    Cart,
-    Mine,
-    Login
-} from "pages"
+import {Home,Find,Cart,Mine,Login} from "pages"
 
+import EveryHot from "components/everyhot"
+import CrossBorder from "components/crossborder"
+import Women from "components/women"
 
 export const TabBarRoute = [
     {
@@ -15,7 +12,30 @@ export const TabBarRoute = [
             flag:true
         },
         icon:"\ue628",
-        text:"首页"
+        text:"首页",
+        children:[
+            {
+                path:"/home/everyhot",
+                component:EveryHot,
+                meta:{
+                    flag:true
+                }
+            },
+            {
+                path:"/home/crossborder",
+                component:CrossBorder,
+                meta:{
+                    flag:true
+                }
+            },
+            {
+                path:"/home/women",
+                component:Women,
+                meta:{
+                    flag:true
+                }
+            }
+        ]
     },
     {
         path:"/find",
@@ -40,7 +60,7 @@ export const TabBarRoute = [
         component:Mine,
         meta:{
             flag:true,
-            requiredAuth:true
+            // requiredAuth:true
         },
         icon:"\ue617",
         text:"我的"
