@@ -10,7 +10,6 @@ export default class App extends Component {
           <Redirect from="/" to="/home" exact />
           {routeEach(RouteConfig)}
         </Switch>
-
       </Route>
     )
   }

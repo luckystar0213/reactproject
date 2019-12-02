@@ -3,8 +3,11 @@ import {
     Find,
     Cart,
     Mine,
-    Login
-} from "pages"
+    Login,
+    ProductList,
+    Detail
+} from "../pages"
+
 
 
 export const TabBarRoute = [
@@ -52,7 +55,19 @@ export const NoTabBarRoute = [
         path:"/login",
         component:Login,
         meta:{}
-    }
+    },
+    {
+        path:"/productlist",
+        text:"不一样的优雅",
+        component:ProductList,
+        meta:{} 
+    },
+    {
+        path:"/detail/:glsCode/:productName",
+        component:Detail,
+        meta:{} 
+    },
+  
 ];
 
 export const RouteConfig = TabBarRoute.concat(NoTabBarRoute)

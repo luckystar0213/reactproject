@@ -27,9 +27,17 @@ export const Mine = Loadable({
     loading:Loading
 })
 
-
+export const ProductList = Loadable({
+    loader:_=>import("./productlist"),
+    loading:Loading
+})
 
 export const Login = Loadable({
     loader:_=>import("./login"),
+    loading:Loading
+})
+
+export const Detail = Loadable({
+    loader:_=>import("./detail"),
     loading:Loading
 })

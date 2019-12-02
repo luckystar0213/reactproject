@@ -1,6 +1,6 @@
 const proxy = require("http-proxy-middleware");
 module.exports  = (app)=>{
-    app.use("/appapi",proxy({
+    app.use("/ajax",proxy({
         target:"http://www.mei.com",
         changeOrigin:true,
         pathRewrite:{
