@@ -6,5 +6,6 @@ export const PageContainer = styled.div`
     top:0;
     right: 0;
     bottom:0;
-    padding-bottom:1rem;
+    padding-bottom:0.5rem;
+    background:#fff;
 `
