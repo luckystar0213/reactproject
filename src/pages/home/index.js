@@ -43,7 +43,7 @@ class Home extends Component {
                                         推荐
                                         </NavLink> */}
                                             推荐
-                                        <Redirect from="/home" to="/home/crossborder" />
+                                        <Redirect from="/home" to="/home/everyhot" />
                                         </span>
                                 </li>
                                 <li className="Menubar">

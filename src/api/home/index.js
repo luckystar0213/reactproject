@@ -1,18 +1,17 @@
 import http from "utils/request";
 
 //推荐的接口
-export const homeApi = (params = '%7B%7D', timestamp = '1575123136876', summary = '6c963fb61c180f1984d8b5fce0d4fa3d') => http.get({
+export const homeApi = () => http.get({
     url: "/appapi/home/eventForH5?params=%7B%7D&timestamp=1575123136876&summary=6c963fb61c180f1984d8b5fce0d4fa3d",
-    // url:"/appapi/silo/eventForH5?categoryId=crossborder&pageIndex=1&timestamp=1575205254767&summary=80f4846b2bffe27651e6f735dbea243f",
     data: {
-        params: params,
-        timestamp: timestamp,
-        summary: summary
+        // params: params,
+        // timestamp: timestamp,
+        // summary: summary
     }
 })
 
 //海外接口
-export const crossApi = (categoryId = 'crossborder', timestamp = 1575205254767, summary = '80f4846b2bffe27651e6f735dbea243f') => http.get({
+export const crossApi = (categoryId='crossborder',timestamp='1575288542955',summary='b85df584098da59f82b45a1a4c882d0b') => http.get({
     url: "/appapi/silo/eventForH5",
     data: {
         categoryId: categoryId,
@@ -22,7 +21,6 @@ export const crossApi = (categoryId = 'crossborder', timestamp = 1575205254767, 
         platform_code: 'H5'
     }
 })
-//?categoryId=crossborder&pageIndex=1&timestamp=1575205254767&summary=80f4846b2bffe27651e6f735dbea243f
 
 
 //女士接口
@@ -45,5 +43,14 @@ export const findApi = (text) => http.get({
     url: "/appapi/search/searchSuggest/v3",
     data: {
         text: text
+    }
+})
+
+//登录接口
+export const loginApi = (username,password) => http.post({
+    url: "/users/login",
+    data: {
+        username ,
+        password   
     }
 })

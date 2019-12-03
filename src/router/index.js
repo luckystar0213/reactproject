@@ -69,7 +69,7 @@ export const TabBarRoute = [
         component:Mine,
         meta:{
             flag:true,
-            // requiredAuth:true
+            requiredAuth:true
         },
         icon:"\ue617",
         text:"我的"

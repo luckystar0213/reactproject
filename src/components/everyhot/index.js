@@ -14,6 +14,7 @@ class EveryHot extends Component {
         // console.log(this.states)
         // console.log(this.props.home,12314)
         let { home } = this.props
+        console.log(home,55555)
         return (
             <Fragment>
             <Main className="home" >

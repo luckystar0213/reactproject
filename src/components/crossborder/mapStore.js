@@ -9,8 +9,8 @@ export const mapStateToProps=(state)=>({
 
 export const mapDispatchToProps=(dispatch)=>({
     //只限于修改state中的数据
-    handleAsyncCross(categoryId,timestamp,summary){
-        dispatch(CrossborderAction(categoryId,timestamp,summary))
+    handleAsyncCross(){
+        dispatch(CrossborderAction())
     }
 })
 
