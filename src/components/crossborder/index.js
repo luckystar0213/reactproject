@@ -58,7 +58,7 @@ class CrossBorder extends Component {
         )
     }
     componentDidMount() {
-        this.props.handleAsyncCross(this.props.categoryId, this.props.timestamp, this.props.summary)
+        this.props.handleAsyncCross()
 
 
     }

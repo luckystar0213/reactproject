@@ -1,12 +1,13 @@
 //简化redux 判断写法(即switch判断)
 import { handleActions } from "redux-actions"
-import { everyHotType, crossType, womenType, findType } from "../../actions/everyhot/actiontypes"
+import { everyHotType, crossType, womenType, findType ,loginType} from "../../actions/everyhot/actiontypes"
 const defaultState = {
   home: [],
   cross: [],
   women: [],
   find: [],
-  searchVal:"BALMAIN 最低可至2折111"
+  searchVal:"BALMAIN 最低可至2折111",
+  login:[]
 }
 
 //handleActions 纯函数   //匹配的action
@@ -18,35 +19,34 @@ export default handleActions({
     // console.log(state,action,999)
     let homeState = JSON.parse(JSON.stringify(state));
     homeState.home = action.payload.data;
-    // console.log(11)
+    // console.log(homeState.home)
     return homeState
   },
 
   //海外
   [crossType]: (state, action) => {
-    //  console.log(state,action)
     let crossState = JSON.parse(JSON.stringify(state));
-    crossState.cross = action.payload.data;
-    // console.log(crossState.cross,1011)
+    crossState.cross = action.payload.data
     return crossState
   },
 
   //女士
   [womenType]: (state, action) => {
     let womenState = JSON.parse(JSON.stringify(state));
-    womenState.women = action.payload.eventList;
-    console.log(state,999)
+    womenState.women = action.payload.data;
+    // console.log(state,999)
     return womenState
   },
 
   //搜索
   [findType]: (state,action) => {
-    // console.log(state)
     let findState = JSON.parse(JSON.stringify(state));
-    findState.find = action.payload;
-    // console.log(action)
+    
+    findState.find = action.payload.data.result;
+    // console.log(findState.find )
     return findState
-  }
+  },
+
 
 }, defaultState)
 

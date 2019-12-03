@@ -5,7 +5,7 @@ import product from "./reducers/product"
 import home from "./reducers/home";
 
 const reducers = combineReducers({
-    product, home
+ home,product
 })
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(reduxThunk)))

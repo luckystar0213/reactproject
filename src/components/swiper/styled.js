@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SwiperCon = styled.div`
+export const SwiperCon=styled.div`
     width:100%;
     height:4.5rem;
     position:relative;

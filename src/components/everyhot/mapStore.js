@@ -6,7 +6,7 @@ export const mapStateToProps=(state)=>({
 
 export const mapDispatchToprops=(dispatch)=>({
     handleAsyncHot(){
-        // console.log(222)
+       
         dispatch(everyhotAction())
     }
 })

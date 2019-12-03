@@ -22,7 +22,6 @@ export const crossApi = (categoryId = 'crossborder', timestamp = 1575205254767, 
         platform_code: 'H5'
     }
 })
-//?categoryId=crossborder&pageIndex=1&timestamp=1575205254767&summary=80f4846b2bffe27651e6f735dbea243f
 
 
 //女士接口
@@ -45,5 +44,14 @@ export const findApi = (text) => http.get({
     url: "/ajax/appapi/search/searchSuggest/v3",
     data: {
         text: text
+    }
+})
+
+//登录接口
+export const loginApi = (username,password) => http.post({
+    url: "/users/login",
+    data: {
+        username ,
+        password   
     }
 })

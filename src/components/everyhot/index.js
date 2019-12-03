@@ -13,6 +13,7 @@ class EveryHot extends Component {
     render() {
         // console.log(this.props,12)
         let { home } = this.props
+        console.log(home,55555)
         return (
             <Fragment>
             <Main className="home" >
