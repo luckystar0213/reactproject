@@ -11,8 +11,7 @@ import {withRouter} from "react-router-dom"
 class EveryHot extends Component {
 
     render() {
-        // console.log(this.states)
-        // console.log(this.props.home,12314)
+        // console.log(this.props,12)
         let { home } = this.props
         return (
             <Fragment>
@@ -147,12 +146,13 @@ class EveryHot extends Component {
         )
     }
     handleProList(child){
-        this.props.history.push("/cart?siloEn="+child.siloEn+"&eventCode="+child.eventId+"&urlkey"+child.urlkey)
+        this.props.history.push("/productlist?siloEn="+child.siloEn+"&eventCode="+
+        child.eventId+"&URLKey="+child.urlkey+"&chineseName="+child.chineseName)
     }
 
     componentWillUpdate(){
         this.refs.scroll.handlefinishPullUp();
-        console.log(111)
+        // console.log(111)
     }
     componentDidMount() {
         // console.log("componentDidMount", 111)

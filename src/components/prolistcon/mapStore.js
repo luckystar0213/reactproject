@@ -5,7 +5,7 @@ export const mapStateToProps = (state) =>({
 })
 
 export const mapDispatchToProps = (dispatch) =>({
-    handelAsyncProListCon(pageIndex,categoryId,key,sort,timestamp,summary){
-       dispatch(ProListConAsyncAction(pageIndex,categoryId,key,sort,timestamp,summary))
+    handelAsyncProListCon(pageIndex,categoryId,key,sort){
+       dispatch(ProListConAsyncAction(pageIndex,categoryId,key,sort))
     },
 })

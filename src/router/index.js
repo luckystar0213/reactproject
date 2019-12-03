@@ -59,7 +59,8 @@ export const TabBarRoute = [
         path:"/cart",
         component:Cart,
         meta:{
-            flag:true
+            flag:true,
+            requiredAuth:true
         },
         icon:"\ue737",
         text:"购物车"
@@ -69,7 +70,7 @@ export const TabBarRoute = [
         component:Mine,
         meta:{
             flag:true,
-            // requiredAuth:true
+            requiredAuth:true
         },
         icon:"\ue617",
         text:"我的"
@@ -84,12 +85,12 @@ export const NoTabBarRoute = [
     },
     {
         path:"/productlist",
-        text:"不一样的优雅",
+        text:"",
         component:ProductList,
         meta:{} 
     },
     {
-        path:"/detail/:glsCode/:productName",
+        path:"/detail",
         component:Detail,
         meta:{} 
     },

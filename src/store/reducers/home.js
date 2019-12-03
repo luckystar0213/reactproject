@@ -11,13 +11,14 @@ const defaultState = {
 
 //handleActions 纯函数   //匹配的action
 //默认的数据
+
 export default handleActions({
   //推荐
   [everyHotType]: (state, action) => {
     // console.log(state,action,999)
     let homeState = JSON.parse(JSON.stringify(state));
-    homeState.home = action.payload.data.lists;
-    // console.log(homeState.home)
+    homeState.home = action.payload.data;
+    // console.log(11)
     return homeState
   },
 
@@ -25,7 +26,7 @@ export default handleActions({
   [crossType]: (state, action) => {
     //  console.log(state,action)
     let crossState = JSON.parse(JSON.stringify(state));
-    crossState.cross = action.payload.eventList;
+    crossState.cross = action.payload.data;
     // console.log(crossState.cross,1011)
     return crossState
   },

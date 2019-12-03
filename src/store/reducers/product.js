@@ -2,7 +2,8 @@ import { handleActions } from "redux-actions";
 import { ProListConType,DetailType } from "actions/prolistcon/actionsTypes"
 const defaultState = {
     productlist: {},
-    proInfos:{}
+    proInfos:{},
+
 }
 export default handleActions({
     [ProListConType]: (state, action) => {
@@ -15,7 +16,7 @@ export default handleActions({
         let InfosState = JSON.parse(JSON.stringify(state))
         // console.log(action.payload.infos)
         InfosState.proInfos =action.payload.infos
-        console.log(222,InfosState.proInfos)
+        // console.log(222,InfosState.proInfos)
         return InfosState
     }
 }, defaultState)

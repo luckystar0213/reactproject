@@ -5,3 +5,4 @@ export const DetailType = "DATAIL_TYPE";
 
 
 
+

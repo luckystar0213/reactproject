@@ -15,7 +15,7 @@ class CarBar extends React.Component {
                         </div>
                     </div>
                     <div className="submit-btn">
-                        <span className="add-to-cart btn-space">加入购物车</span>
+                        <span className="add-to-cart btn-space" onClick={this.handelAddCar.bind(this)}>加入购物车</span>
                         <span className="add-to-checkout">立即购买</span>
                     </div>
                 </CarBarBox>

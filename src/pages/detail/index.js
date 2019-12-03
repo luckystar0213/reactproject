@@ -1,22 +1,46 @@
 import React, { Component, Fragment } from 'react'
 import { mapStateToProps, mapDispatchToProps } from "./mapStore"
-import { InfoBox } from "./styled"
-import Header from "components/header"
-import CarBar from "components/carBar"
+import { InfoBox, TopMenuBar, CarBarBox } from "./styled"
+import Swiper from "components/swiper"
 import { connect } from "react-redux";
-import {withRouter}  from "react-router-dom"
+import { withRouter } from "react-router-dom"
+
+const url = require("url")
 @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
+
 class Detail extends Component {
+    constructor(){
+        super();
+        this.state={
+            colors:'',
+            sizes:'',
+            colorflag:0,
+            sizeflag:0,
+        }
+    }
     render() {
-        let { proInfos } = this.props
-        console.log(this.props)
+        let { proInfos} = this.props
+        let swiperItem = proInfos.images;
+        console.log(swiperItem)
         return (
 
             <InfoBox>
-                <Header />
+                <TopMenuBar>
+                    <div className="topbar">
+                        <div className="left">
+                            <a className="back">
+                                <span className="iconfont icon-xiazai6" onClick={this.handleBack.bind(this)}>返回</span>
+                            </a>
+                        </div>
+                        <div className="title">
+                            <span >{proInfos.brand}</span>
+                        </div>
+                    </div>
+                </TopMenuBar>
                 <div className="cont" >
                     <div className="product-show-img">
+                        {/* <Swiper swiperItem={swiperItem}></Swiper> */}
                         <div className="product-show-box swiper-container swiper-container-horizontal">
                             <div className="swiper-slide product-image-item" >
                                 <img src={proInfos.brandImg} />
@@ -64,11 +88,11 @@ class Detail extends Component {
                                         <div className="title">服务</div>
                                         <div className="labels">
                                             {
-                                                proInfos.service_labels?proInfos.service_labels.map((serveItem,index)=>(
+                                                proInfos.service_labels ? proInfos.service_labels.map((serveItem, index) => (
                                                     <span className="label-item" key={index}><em>{serveItem.label_title}</em></span>
-                                                )):""
+                                                )) : ""
                                             }
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -80,9 +104,9 @@ class Detail extends Component {
                                             <div className="title">颜色</div>
                                             <div className="color">
                                                 {
-                                                    proInfos.colorGroup?proInfos.colorGroup.map((colorItem,index)=>(
-                                                        <span className="color-item normal" key={index}>{colorItem.color}</span>
-                                                    )):""
+                                                    proInfos.colorGroup ? proInfos.colorGroup.map((colorItem, index) => (
+                                                        <span key={colorItem.color} className={this.state.colorflag==index?'color-item selected':'color-item'} onClick={this.handleAddColor.bind(this,index)}>{colorItem.color}</span>
+                                                    )) : ""
                                                 }
 
                                             </div>
@@ -93,9 +117,9 @@ class Detail extends Component {
                                             <div className="title">尺码</div>
                                             <div className="size">
                                                 {
-                                                    proInfos.size?proInfos.size.map((sizeItem,index) => (
-                                                        <span className="size-item normal" key={index}>{sizeItem.sizeId}</span>
-                                                    )):""
+                                                    proInfos.size ? proInfos.size.map((sizeItem, index) => (
+                                                        <span className={this.state.sizeflag==index?'size-item selected':'size-item'} key={sizeItem.sizeId} onClick={this.handleAddSize.bind(this,index)}>{sizeItem.sizeId}</span>
+                                                    )) : ""
                                                 }
                                             </div>
                                         </div>
@@ -110,9 +134,9 @@ class Detail extends Component {
                             <div className="images">
                                 <div className="pic">
                                     {
-                                       proInfos.description?proInfos.description.product_img1.map((imgitem,index)=>(
+                                        proInfos.description ? proInfos.description.product_img1.map((imgitem, index) => (
                                             <img src={imgitem.bigImgUrl} key={index}></img>
-                                        )):""
+                                        )) : ""
                                     }
 
                                 </div>
@@ -122,14 +146,74 @@ class Detail extends Component {
                     </div>
                 </div>
 
-                <CarBar />
+                <CarBarBox>
+                    <div className="left-area">
+                        <div>
+                            <a className="shop-car btn-space" onClick={this.handleToCar.bind(this)}>
+                                <span className="icon"> </span>
+                                <span className="btn-text" >购物袋</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div className="submit-btn">
+                        <span className="add-to-cart btn-space" onClick={this.handleAddCar.bind(this,proInfos)}>加入购物车</span>
+                        <span className="add-to-checkout">立即购买</span>
+                    </div>
+                </CarBarBox>
             </InfoBox>
         )
     }
+    handleAddColor(index,e){
+        let val =e.target.innerText;
+        this.setState({
+            colors:val,
+            colorflag:index
+        })
 
-    componentDidMount() {
-        this.props.handleAsyncDetail('2120005100000003137', '2121212199000176808', '1575251094554', 'afa361df2b0c8ea174b99f26cf915463')
     }
+    handleAddSize(index,e){
+        let val =e.target.innerText;
+        this.setState({
+            sizes:val,
+            sizeflag:index
+        })
+
+    }
+    handleAddCar(proInfos){
+        let secName = proInfos.name;
+        let brandName = proInfos.brandName;
+        let secId = proInfos.brandId;
+        let secPrice = proInfos.price;
+        let secColor = this.state.colors;
+        let secSize = this.state.sizes;
+        let secImg = proInfos.images[0].bigImgUrl;
+        let info = {
+            secName,
+            secId,
+            brandName,
+            secPrice,
+            secColor,
+            secSize,
+            secImg
+        }
+        console.log(info)
+        let cart = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")):[]
+        cart.push(info)
+        localStorage.setItem("cart",JSON.stringify(cart))
+        
+    }
+    componentDidMount() {
+        let { eventCode, productId } = url.parse(this.props.location.search, true).query
+
+        this.props.handleAsyncDetail(eventCode, productId)
+    }
+    handleBack() {
+        this.props.history.goBack()
+    }
+    handleToCar(){
+        this.props.history.push("/cart")
+    }
+    
 }
 
 

@@ -1,12 +1,12 @@
 
-import { DetailAsyncAction } from "actions/prolistcon/actionsCreator"
+import { DetailAsyncAction, ColorAsyncAction } from "actions/prolistcon/actionsCreator"
 
 export const mapStateToProps = (state) => ({
-    proInfos:state.product.proInfos
+    proInfos: state.product.proInfos,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-    handleAsyncDetail(categoryId,productId,timestamp,summary){
-        dispatch(DetailAsyncAction(categoryId,productId,timestamp,summary))
-    }
+    handleAsyncDetail(categoryId, productId) {
+        dispatch(DetailAsyncAction(categoryId, productId))
+    },
 })

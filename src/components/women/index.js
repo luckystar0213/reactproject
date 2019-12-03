@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react'
 import { Main, Hot } from "./styled"
 import { connect } from "react-redux"
 import { mapStateToProps, mapDispatchToProps } from "./mapStore"
+import { withRouter } from "react-router-dom"
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 
 
@@ -31,7 +33,7 @@ class Women extends Component {
                 <Hot>
                     {
                         women.map((item, index) => (
-                            <div className="hot_container" key={index}>
+                            <div className="hot_container" key={index} onClick={this.handleProList.bind(this, item)}>
                                 <div className="item">
                                     <div className="event-item-img">
                                         <img src={item.imageUrl} />
@@ -55,6 +57,10 @@ class Women extends Component {
     }
     componentDidMount() {
         this.props.handleAsyncWomen()
+    }
+    handleProList(item) {
+        this.props.history.push("/productlist?siloEn=" + item.siloEn + "&eventCode=" +
+            item.eventId + "&URLKey=" + item.urlkey + "&chineseName=" + item.chineseName)
     }
 }
 

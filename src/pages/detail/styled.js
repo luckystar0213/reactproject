@@ -1,15 +1,76 @@
 import styled from "styled-components";
 
+export const TopMenuBar = styled.div`
+    position: fixed;
+    padding:0 .15rem;
+    background:#fff !important;
+    z-index:1000;
+    width:100%;
+
+.topbar{
+    width:100%;
+    height:.44rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items:center;     
+}
+.left{
+    width:.5rem;
+    height:.44rem;
+    margin-right:.6rem;
+}
+.back,.switch-menu,.show-menu{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    span{
+        color:#222;
+        display: block;
+        height: .6rem;
+        position: absolute;
+        top:.13rem;
+        font-size:.14rem;
+    }
+}
+.title{
+    position:relative;
+    span{
+        display: block;
+        font-size: .16rem;
+        font-weight: 600;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+.right{
+    height:.44rem;     
+    .show-menu{
+        width:100%;
+        height:100%;
+        font-size:.14rem;
+        border:none;
+        outline:none;
+        option{
+            font-size:12px;
+        }
+    }
+}`
+
 export const InfoBox = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    
     .cont{
         padding: 0 .2rem .3rem;
         position: relative;
-        margin:.88rem 0;
+        margin:.44rem 0;
     }
     .product-show-img{
         opacity: 0;
@@ -161,30 +222,41 @@ export const InfoBox = styled.div`
         .color-list{
             padding-bottom: .1rem;
         }
-        .color, .size{
+        .color{
             padding-left: .2rem;
-        }
-        .color-item{
-            margin: 0 .2rem .2rem 0;
-            padding:.05rem .1rem;
-            text-align: center;
-            color: #000;
-            font-size: .13rem;
-            background-color: #f5f5f5;
-        }
-        .selected{
+            .color-item {
+                margin: 0 .2rem .2rem 0;
+                padding:.05rem .1rem;
+                text-align: center;
+                color: #000;
+                font-size: .13rem;
+                background-color: #f5f5f5;
+            }
+            .selected{
             color: #fff;
             background-color: #000;
+            
+            }
         }
-        .size-item{
-            margin: 0 .2rem .2rem 0;
-            padding: .05rem .1rem;
-            float: left;
-            text-align: center;
-            color: #000;
-            font-size: .13rem;;
-            background-color: #f5f5f5;
+        .size{
+            padding-left: .2rem;
+            .size-item {
+                margin: 0 .2rem .2rem 0;
+                padding: .05rem .1rem;
+                float: left;
+                text-align: center;
+                color: #000;
+                font-size: .13rem;
+                background-color: #f5f5f5;
+            }
+            .selected{
+            color: #fff;
+            background-color: #000;
+            
+            }
         }
+        
+
     }
     .block-desc {
         position: relative;
@@ -208,4 +280,60 @@ export const InfoBox = styled.div`
     .tip{
             font-size:.13rem;
         }
+`
+
+export const CarBarBox = styled.div`
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background: #fff;
+    width: 100%;
+    height: .5rem;
+    box-shadow: 0 -0.04rem 0.08rem 0 rgba(0,0,0,.05);
+    .left-area{
+        width: .6rem;
+        .shop-car{
+            width: .6rem;
+            height: .5rem;
+            float: left;
+            text-align: center;
+            position: relative;
+            line-height:.5rem;
+            span{
+                display: block;
+                position: relative;
+                color:#666;
+                font-size:.12rem;
+            }
+        }
+    }
+    .submit-btn{
+        width: 4rem;
+        height: .5rem;
+        font-size: .14rem;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        span{
+            display: block;
+            position: relative;
+            width:50%;
+            height:.5rem;
+            line-height:.5rem;
+            text-align:center;
+        }
+        .add-to-cart{
+            color:#222;
+            border-left:2px solid #ddd;
+            border-right:2px solid #ddd;
+        }
+        .add-to-checkout{
+            color: #dd2828;
+        }
+    }
+    
 `
