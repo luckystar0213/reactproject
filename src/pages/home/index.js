@@ -15,8 +15,8 @@ class Home extends Component {
                     <div className="homeTop">
                         <ul >
                             <li className="homeTop_list1">
-                                <a href="#" className="head-img icon-saoma">
-                                    <img src="" />
+                                <a href="#" className="iconfont head-img icon-saoma">
+                                    
                                 </a>
                             </li >
                             <li className="search">
@@ -29,7 +29,7 @@ class Home extends Component {
                             </li>
                             <li className="homeTop_list3">
                                 <a href="#">
-                                    <span className="shopCarIcon icon-shop"></span>
+                                    <span className="iconfont DianIcon icon-dian"></span>
                                 </a>
                             </li>
                         </ul>

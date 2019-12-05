@@ -21,7 +21,7 @@ export const TabBarRoute = [
         meta:{
             flag:true
         },
-        icon:"\ue628",
+        icon:"\ue60f",
         text:"首页",
         children:[
             {
@@ -53,7 +53,7 @@ export const TabBarRoute = [
         meta:{
             flag:true
         },
-        icon:"\ue663",
+        icon:"\ue646",
         text:"发现"
     },
     {
@@ -63,7 +63,7 @@ export const TabBarRoute = [
             flag:true,
             // requiredAuth:true
         },
-        icon:"\ue737",
+        icon:"\ue603",
         text:"购物车"
     },
     {

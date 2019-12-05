@@ -14,6 +14,7 @@ export const Conatiner = styled.div`
         .homeTop{
             height:0.45rem;
             margin: 0 auto;
+            background:#fff;
             ul{
                 display:flex;
                 flex-direction: row;
@@ -83,18 +84,22 @@ export const Conatiner = styled.div`
             align-items: center;
         }
     }
-    .shopCarIcon{
+    .DianIcon{
         width: .2rem;
         height:.24rem;
         display: block;
-        background:pink;
         margin-top:0.1rem;
+        font-size:.3rem;
+        color:#222;
+        margin-right:.15rem;
     }
 .Menu{
     height:0.43rem;
     width: 100%;
     margin: 0 auto;
     overflow-x:auto;
+    background:#fff;
+    
     div{
         width:100%;
         height: 0.43rem;
@@ -118,8 +123,8 @@ export const Conatiner = styled.div`
         padding-left:0.1rem;
         float: left;
         span{
-        color:#fff;
-        font-size:0.16rem;
+            color:#222;
+            font-size:0.16rem;
         }
     }
 }
