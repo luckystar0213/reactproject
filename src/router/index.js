@@ -95,7 +95,6 @@ export const NoTabBarRoute = [
         path:"/detail",
         component:Detail,
         meta:{} 
-<<<<<<< HEAD
     }, {
         path:"/personinfo/:name",
         component:PersonInfo,
@@ -105,15 +104,12 @@ export const NoTabBarRoute = [
         },
         icon:"\ue617",
         text:"个人中心"
-    }
-=======
     },
     {
         path:"/searchlist",
         component:SearchList,
         meta:{} 
     },
->>>>>>> aloye
   
 ];
 
