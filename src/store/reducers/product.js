@@ -1,9 +1,9 @@
 import { handleActions } from "redux-actions";
-import { ProListConType,DetailType } from "actions/prolistcon/actionsTypes"
+import { ProListConType, DetailType, SearchListType } from "actions/prolistcon/actionsTypes"
 const defaultState = {
     productlist: {},
-    proInfos:{},
-
+    proInfos: {},
+    searchlist:{}
 }
 export default handleActions({
     [ProListConType]: (state, action) => {
@@ -15,9 +15,16 @@ export default handleActions({
     [DetailType]: (state, action) => {
         let InfosState = JSON.parse(JSON.stringify(state))
         // console.log(action.payload.infos)
-        InfosState.proInfos =action.payload.infos
+        InfosState.proInfos = action.payload.infos
         // console.log(222,InfosState.proInfos)
         return InfosState
+    },
+    [SearchListType]: (state, action) => {
+        let SearchState = JSON.parse(JSON.stringify(state))
+        // console.log(action.payload)
+        SearchState.searchlist = action.payload
+        
+        return SearchState
     }
 }, defaultState)
 

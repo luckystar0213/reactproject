@@ -24,6 +24,17 @@ export const DetailApi = (categoryId,productId) =>http.get({
     }
 })
 
+//搜索列表api
+export const SearchListApi = (pageIndex,q,sort,key,secondCategoryId) =>http.get({
+    url:"/ajax/appapi/search/searchKey/v3",
+    data:{
+        pageIndex,
+        q,
+        sort,
+        key,
+        secondCategoryId,
+    }
+})
 
 
 

@@ -79,6 +79,7 @@ export const InfoBox = styled.div`
         opacity: 1;
         padding: 0 0 .15rem;
         top:-.44rem;
+
     }
     .product-show-box{
         box-shadow: 0 0.01rem 0.1rem 0.06rem rgba(0,0,0,.05);
@@ -90,7 +91,7 @@ export const InfoBox = styled.div`
         overflow: hidden;
         z-index: 1;
     }
-    .product-image-item, .product-image-swiper{
+    .product-image-item, .product-image-swiper,.swiper-wrapper,.slide-content{
         width: 3.3rem;
         height:3.3rem;
         overflow: hidden;
@@ -98,8 +99,8 @@ export const InfoBox = styled.div`
         box-sizing: border-box;
         z-index:100;
     }
-    .product-image-item{
-        img{
+    .slide-content{
+        .swiper-img{
             width: 3.3rem;
             overflow: hidden;
             position: absolute;

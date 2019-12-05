@@ -5,7 +5,8 @@ import {
     Mine,
     Login,
     ProductList,
-    Detail
+    Detail,
+    SearchList
 } from "../pages"
 
 import EveryHot from "components/everyhot"
@@ -60,7 +61,7 @@ export const TabBarRoute = [
         component:Cart,
         meta:{
             flag:true,
-            requiredAuth:true
+            // requiredAuth:true
         },
         icon:"\ue737",
         text:"购物车"
@@ -94,6 +95,7 @@ export const NoTabBarRoute = [
         path:"/detail",
         component:Detail,
         meta:{} 
+<<<<<<< HEAD
     }, {
         path:"/personinfo/:name",
         component:PersonInfo,
@@ -104,6 +106,14 @@ export const NoTabBarRoute = [
         icon:"\ue617",
         text:"个人中心"
     }
+=======
+    },
+    {
+        path:"/searchlist",
+        component:SearchList,
+        meta:{} 
+    },
+>>>>>>> aloye
   
 ];
 
