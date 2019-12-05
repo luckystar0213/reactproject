@@ -15,7 +15,7 @@ class Find extends Component {
                 <Main>
                     <ul>
                         <li className="search_ico">
-                            <i></i>
+                            <i className="icon-search"></i>
                         </li>
                         <li className="search">
                             <input type="text" className="keyword" value={searchVal} onChange={this.handleGetValue.bind(this)} />

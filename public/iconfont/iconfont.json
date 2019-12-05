@@ -1,0 +1,72 @@
+{
+  "id": "1538052",
+  "name": "react",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2808093",
+      "name": "首页",
+      "font_class": "shouye-l",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "5514436",
+      "name": "find",
+      "font_class": "find",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "6791843",
+      "name": "shanchu",
+      "font_class": "shanchu",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "8220591",
+      "name": "向右",
+      "font_class": "toright",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "8666737",
+      "name": "shop",
+      "font_class": "shop",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "9081344",
+      "name": "点",
+      "font_class": "dian",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "9799543",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e87e",
+      "unicode_decimal": 59518
+    },
+    {
+      "icon_id": "9874349",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "9910034",
+      "name": "saoma",
+      "font_class": "saoma",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    }
+  ]
+}

@@ -15,7 +15,7 @@ class Home extends Component {
                     <div className="homeTop">
                         <ul >
                             <li className="homeTop_list1">
-                                <a href="#" className="head-img">
+                                <a href="#" className="head-img icon-saoma">
                                     <img src="" />
                                 </a>
                             </li >
@@ -29,7 +29,7 @@ class Home extends Component {
                             </li>
                             <li className="homeTop_list3">
                                 <a href="#">
-                                    <span className="shopCarIcon"></span>
+                                    <span className="shopCarIcon icon-shop"></span>
                                 </a>
                             </li>
                         </ul>

@@ -13,6 +13,7 @@
  - qs
  - js-cookie
  - antd-mobile
+ - 非父子传值
 
 `yarn add react-router-dom prop-types redux react-redux redux-thunk whatwg-fetch redux-actions styled-components react-loadable qs js-cookie antd-mobile`
 

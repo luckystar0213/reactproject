@@ -30,10 +30,16 @@ class Login extends Component {
         let username = this.refs.name.value;
         let password = this.refs.pwd.value;
         let data = await loginApi(username, password)
-        // console.log(data.data)
+        console.log(data.data.data)
         if (data.code === 200) {
             alert("登录成功") 
             let path = this.props.location.params ? this.props.location.params.from : '/home';
+            localStorage.setItem("userInfo",JSON.stringify({
+                id:data.data.data._id,
+                name:data.data.data.name,
+                urlPic:data.data.data.urlPic,
+                
+            }))
             this.props.history.push(path)
         } else {
             alert("登陆失败")

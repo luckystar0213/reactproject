@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import {PageContainer} from "common/styled"
-import {Main} from "./styled"
-
-export default class Mine extends Component {
+import { PageContainer } from "common/styled"
+import { Main } from "./styled"
+import observer from "utils/observer"
+import { withRouter } from "react-router-dom"
+@withRouter
+class Mine extends Component {
     render() {
         return (
             <PageContainer>
@@ -26,13 +28,13 @@ export default class Mine extends Component {
                     <div className="personal-center">
                         <div className="baseinfo">
                             <div className="avatar">
-                                <img src="https://cdn12.mei.com/glamour_default.png@200w_200h_2e_75q" alt="" />
+                                <img src="https://cdn12.mei.com/glamour_default.png@200w_200h_2e_75q" alt="true" />
                             </div>
                             <div className="username">
-
-                                <span className="nickname">幼儿园高帅帅</span>
-                                <span className="to-personalinfo">查看并编辑个人资料</span>
-
+                               
+                              <span className="nickname" ref="petname" onClick={this.handleSend.bind(this)}>幼儿园高帅帅</span>
+                        
+                                <span className="to-personalinfo" onClick={this.handleTo.bind(this)}>查看并编辑个人资料</span>
                             </div>
                         </div>
 
@@ -96,4 +98,20 @@ export default class Mine extends Component {
             </PageContainer>
         )
     }
+    handleTo() {
+        
+       
+    }
+    handleSend() {
+        let petname = this.refs.petname.innerText
+        // console.log(petname)
+        // 非父子传值
+        // observer.$emit("handleSendPerson",petname)
+        // this.props.history.push("/personInfo")
+        this.props.history.push("/personInfo/"+petname)
+    }
+    
 }
+
+
+export default Mine 

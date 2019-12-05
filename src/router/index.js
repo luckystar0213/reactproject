@@ -8,10 +8,10 @@ import {
     Detail
 } from "../pages"
 
-
 import EveryHot from "components/everyhot"
 import CrossBorder from "components/crossborder"
 import Women from "components/women"
+import PersonInfo from "../components/personinfo"
 
 export const TabBarRoute = [
     {
@@ -75,6 +75,7 @@ export const TabBarRoute = [
         icon:"\ue617",
         text:"我的"
     }
+   
 ];
 
 export const NoTabBarRoute = [
@@ -93,7 +94,16 @@ export const NoTabBarRoute = [
         path:"/detail",
         component:Detail,
         meta:{} 
-    },
+    }, {
+        path:"/personinfo/:name",
+        component:PersonInfo,
+        meta:{
+            // flag:true,
+            requiredAuth:true
+        },
+        icon:"\ue617",
+        text:"个人中心"
+    }
   
 ];
 

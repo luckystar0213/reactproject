@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const Main = styled.div`
+    position:relative;
+    left:0;
+    top:0;
+    right: 0;
+    bottom:0;
+    padding-bottom:0.2rem;
+    background:#fff;
+`
 
 export const Hot = styled.div`
 position:relative;
@@ -72,75 +81,6 @@ background:red;
 margin-left:0.02rem;
 }
 `
-
-
-export const Main = styled.div`
-    background: #fff;
-    height:4.5rem;
-    background:#d8d8d8;
-.swiper-container {
-    height:100%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    // overflow: hidden;
-    z-index: 1;
-}
-.swiper-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: flex;
-    transition-property: transform;
-    box-sizing: content-box;
-}
-.swiper-slide{
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    position: relative;
-    box-sizing: border-box;
-    flex-shrink: 0;
-}
-.banner-item{
-    width: 100%;
-    height: 100%;
-    // overflow: hidden;
-    display: block;
-    position: relative;
-    img{
-        width: 100%;
-        display: block;
-    }
-}
-.banner-slogan{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    left: 0;
-    color: #fff;
-    bottom: 0.45rem;
-    strong{
-        margin-bottom: 0.03rem;
-        line-height: .31rem;
-        font-size: 0.3rem;
-        font-weight: 700;
-    }
-    span{
-        line-height:0.21rem;
-        font-size:0.19rem;
-    }
-    p{
-        font-size:0.15rem;
-    }
-}
-
-`
-
 
 
 export const Every = styled.div`
