@@ -1,28 +1,28 @@
 import React, { Component, Fragment } from 'react'
 import { mapStateToProps, mapDispatchToProps } from "./mapStore"
 import { InfoBox, TopMenuBar, CarBarBox } from "./styled"
-import Swiper from "components/swiper"
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom"
-
+import ReactSwiperExample from "components/swiper"
+import ReactSwiper from 'reactjs-swiper';
 const url = require("url")
 @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 
 class Detail extends Component {
-    constructor(){
+    constructor() {
         super();
-        this.state={
-            colors:'',
-            sizes:'',
-            colorflag:0,
-            sizeflag:0,
+        this.state = {
+            colors: '',
+            sizes: '',
+            colorflag: 0,
+            sizeflag: 0,
         }
     }
     render() {
-        let { proInfos} = this.props
-        let swiperItem = proInfos.images;
-        console.log(swiperItem)
+        let { proInfos } = this.props
+        let items = proInfos.images;
+        // console.log(swiperItem)
         return (
 
             <InfoBox>
@@ -40,13 +40,14 @@ class Detail extends Component {
                 </TopMenuBar>
                 <div className="cont" >
                     <div className="product-show-img">
-                        {/* <Swiper swiperItem={swiperItem}></Swiper> */}
-                        <div className="product-show-box swiper-container swiper-container-horizontal">
+                        <ReactSwiper swiperOptions={items} showPagination items={items} />
+                        {/* <div className="product-show-box swiper-container swiper-container-horizontal">
                             <div className="swiper-slide product-image-item" >
                                 <img src={proInfos.brandImg} />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
+
                     <div className="product-base">
                         <div className="product-title"><h1 >{proInfos.name}</h1></div>
                         <div className="product-price">
@@ -105,7 +106,7 @@ class Detail extends Component {
                                             <div className="color">
                                                 {
                                                     proInfos.colorGroup ? proInfos.colorGroup.map((colorItem, index) => (
-                                                        <span key={colorItem.color} className={this.state.colorflag==index?'color-item selected':'color-item'} onClick={this.handleAddColor.bind(this,index)}>{colorItem.color}</span>
+                                                        <span key={colorItem.color} className={this.state.colorflag == index ? 'color-item selected' : 'color-item'} onClick={this.handleAddColor.bind(this, index)}>{colorItem.color}</span>
                                                     )) : ""
                                                 }
 
@@ -118,7 +119,7 @@ class Detail extends Component {
                                             <div className="size">
                                                 {
                                                     proInfos.size ? proInfos.size.map((sizeItem, index) => (
-                                                        <span className={this.state.sizeflag==index?'size-item selected':'size-item'} key={sizeItem.sizeId} onClick={this.handleAddSize.bind(this,index)}>{sizeItem.sizeId}</span>
+                                                        <span className={this.state.sizeflag == index ? 'size-item selected' : 'size-item'} key={sizeItem.sizeId} onClick={this.handleAddSize.bind(this, index)}>{sizeItem.sizeId}</span>
                                                     )) : ""
                                                 }
                                             </div>
@@ -156,30 +157,30 @@ class Detail extends Component {
                         </div>
                     </div>
                     <div className="submit-btn">
-                        <span className="add-to-cart btn-space" onClick={this.handleAddCar.bind(this,proInfos)}>加入购物车</span>
+                        <span className="add-to-cart btn-space" onClick={this.handleAddCar.bind(this, proInfos)}>加入购物车</span>
                         <span className="add-to-checkout">立即购买</span>
                     </div>
                 </CarBarBox>
             </InfoBox>
         )
     }
-    handleAddColor(index,e){
-        let val =e.target.innerText;
+    handleAddColor(index, e) {
+        let val = e.target.innerText;
         this.setState({
-            colors:val,
-            colorflag:index
+            colors: val,
+            colorflag: index
         })
 
     }
-    handleAddSize(index,e){
-        let val =e.target.innerText;
+    handleAddSize(index, e) {
+        let val = e.target.innerText;
         this.setState({
-            sizes:val,
-            sizeflag:index
+            sizes: val,
+            sizeflag: index
         })
 
     }
-    handleAddCar(proInfos){
+    handleAddCar(proInfos) {
         let secName = proInfos.name;
         let brandName = proInfos.brandName;
         let secId = proInfos.brandId;
@@ -187,6 +188,8 @@ class Detail extends Component {
         let secColor = this.state.colors;
         let secSize = this.state.sizes;
         let secImg = proInfos.images[0].bigImgUrl;
+        let num = 1;
+        let flag = true;
         let info = {
             secName,
             secId,
@@ -194,13 +197,26 @@ class Detail extends Component {
             secPrice,
             secColor,
             secSize,
-            secImg
+            secImg,
+            num,
+            flag
         }
+        let sign = true;
         console.log(info)
-        let cart = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")):[]
-        cart.push(info)
-        localStorage.setItem("cart",JSON.stringify(cart))
+
+        let cart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []
+        for (var i = 0; i < cart.length; i++) {
+            if (cart[i].secName === info.secName && cart[i].secColor == info.secColor && cart[i].secSize == info.secSize) {
+                cart[i].num++;
+                sign = false;
+            }
+        }
+        if(sign === true){
+            cart.push(info)
+        }
         
+        localStorage.setItem("cart", JSON.stringify(cart))
+
     }
     componentDidMount() {
         let { eventCode, productId } = url.parse(this.props.location.search, true).query
@@ -210,10 +226,10 @@ class Detail extends Component {
     handleBack() {
         this.props.history.goBack()
     }
-    handleToCar(){
+    handleToCar() {
         this.props.history.push("/cart")
     }
-    
+
 }
 
 

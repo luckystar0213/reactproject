@@ -1,14 +1,14 @@
 
 import { createAction } from "redux-actions"
-import { ProListConType, DetailType, AddColor } from "./actionsTypes"
-import { productlistApi, DetailApi } from "api/product"
+import { ProListConType, DetailType, SearchListType } from "./actionsTypes"
+import { productlistApi, DetailApi, SearchListApi } from "api/product"
 
 //商品列表
 export const ProListConAsyncAction = (pageIndex, categoryId, key, sort) => {
     let ProListConAction = createAction(ProListConType, data => data)
     return async (dispatch) => {
         let data = await productlistApi(pageIndex, categoryId, key, sort)
-        //    console.log(data)
+        // console.log(data)
         dispatch(ProListConAction(data))
     }
 }
@@ -23,6 +23,16 @@ export const DetailAsyncAction = (categoryId, productId) => {
     }
 }
 
+
+//搜索列表
+export const SearchListConAsyncAction = (pageIndex,q,key,sort,secondCategoryId) => {
+    let SearchListConAction = createAction(SearchListType, data => data)
+    return async (dispatch) => {
+        let data = await SearchListApi(pageIndex,q,key,sort,secondCategoryId)
+        // console.log(data)
+        dispatch(SearchListConAction(data.products))
+    }
+}
 
 
 

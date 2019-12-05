@@ -5,7 +5,8 @@ import {
     Mine,
     Login,
     ProductList,
-    Detail
+    Detail,
+    SearchList
 } from "../pages"
 
 
@@ -60,7 +61,7 @@ export const TabBarRoute = [
         component:Cart,
         meta:{
             flag:true,
-            requiredAuth:true
+            // requiredAuth:true
         },
         icon:"\ue737",
         text:"购物车"
@@ -92,6 +93,11 @@ export const NoTabBarRoute = [
     {
         path:"/detail",
         component:Detail,
+        meta:{} 
+    },
+    {
+        path:"/searchlist",
+        component:SearchList,
         meta:{} 
     },
   
